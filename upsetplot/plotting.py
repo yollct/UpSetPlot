@@ -657,7 +657,7 @@ class UpSet:
         data = self.intersections
         n_cats = data.index.nlevels
 
-        idx = np.flatnonzero(data.index.to_frame()[data.index.names].values)
+        idx = np.flatnonzero(data.index.to_frame()[list(data.index.names)].values)
         c = np.array([self._other_dots_color] * len(data) * n_cats, dtype='O')
         c[idx] = self._facecolor
         x = np.repeat(np.arange(len(data)), n_cats)
